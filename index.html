@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIII Колонна</title>
+    <link rel="icon" href="logo.webp">
+    <style>
+        @font-face {
+            font-family: 'XIII';
+            src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #ccc;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            border-bottom: 3px solid #d10000;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .logo {
+            height: 80px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 5px #d10000);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #d10000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        h2 {
+            border-left: 5px solid #d10000;
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+        
+        .divider {
+            height: 3px;
+            background-color: #d10000;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .divider:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #d10000;
+            transform: rotate(45deg);
+        }
+        
+        .hierarchy {
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .level {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+        
+        .level:before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: -30px;
+            width: 2px;
+            background-color: #d10000;
+        }
+        
+        .level:last-child:before {
+            display: none;
+        }
+        
+        .level-title {
+            font-size: 1.3rem;
+            color: #d10000;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .level-title:before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background-color: #000;
+            border: 2px solid #d10000;
+            border-radius: 50%;
+        }
+        
+        .member {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .member-name {
+            font-size: 1.1rem;
+            color: #d10000;
+            margin-right: 20px;
+            min-width: 200px;
+        }
+        
+        .member-desc {
+            border-left: 1px solid #444;
+            padding-left: 15px;
+        }
+        
+        .contact-btn {
+            display: block;
+            width: 300px;
+            margin: 50px auto;
+            padding: 15px;
+            background-color: #000;
+            color: #d10000;
+            border: 2px solid #d10000;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 3;
+        }
+        
+        .contact-btn:hover {
+            background-color: #d10000;
+            color: #000;
+        }
+        
+        .contact-btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .contact-btn:hover:before {
+            left: 100%;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        
+        .glitch {
+            animation: glitch 1s linear infinite;
+        }
+        
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 0 #d10000;
+            }
+            20% {
+                text-shadow: -2px 0 #d10000;
+            }
+            40% {
+                text-shadow: 2px 0 #d10000;
+            }
+            60% {
+                text-shadow: -2px 0 #d10000;
+            }
+            80% {
+                text-shadow: 2px 0 #d10000;
+            }
+            100% {
+                text-shadow: -2px 0 #d10000;
+            }
+        }
+        
+        .transition-block {
+            height: 200px;
+            background-color: #000;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .freedom-section {
+            background: linear-gradient(to bottom, #000000, #0f3460, #1e88e5, #64b5f6);
+            color: #fff;
+            padding: 150px 20px;
+            text-align: center;
+            position: relative;
+            margin-top: -1px;
+            min-height: 300px;
+        }
+        
+        .freedom-section h2 {
+            color: #fff;
+            border-left: none;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .freedom-section p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+        
+        .freedom-btn {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            margin-top: 30px;
+        }
+        
+        .freedom-btn:hover {
+            background-color: #fff;
+            color: #0f3460;
+        }
+        
+        .corner-decoration {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-color: #d10000;
+            border-style: solid;
+            border-width: 0;
+        }
+        
+        .top-left {
+            top: 20px;
+            left: 20px;
+            border-top-width: 2px;
+            border-left-width: 2px;
+        }
+        
+        .top-right {
+            top: 20px;
+            right: 20px;
+            border-top-width: 2px;
+            border-right-width: 2px;
+        }
+        
+        .bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+        }
+        
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-bottom-width: 2px;
+            border-right-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="corner-decoration top-left"></div>
+    <div class="corner-decoration top-right"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="glitch">XIII Колонна</h1>
+        </header>
+        
+        <section>
+            <p>Мы - тень, скользящая по границам реальности. Мы - молчаливый приговор несправедливости.</p>
+            <p>XIII Колонна существует вне времени и пространства, восстанавливая баланс там, где система дала сбой.</p>
+            <p>Мы не агитируем. Мы действуем.</p>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <section>
+            <h2>Иерархия</h2>
+            
+            <div class="hierarchy">
+                <div class="level">
+                    <div class="level-title">Кардиналы</div>
+                    <p>Высший совет, определяющий путь XIII Колонны:</p>
+                    
+                    <div class="member">
+                        <div class="member-name">Egoropasn</div>
+                        <div class="member-desc">Тень в ночи. Голос без лица. Его решения не обсуждаются.</div>
+                    </div>
+                    
+                    <div class="member">
+                        <div class="member-name">nockiee</div>
+                        <div class="member-desc">Архитектор перемен. Тот, кто перекраивает реальность по своему усмотрению.</div>
+                    </div>
+                    
+                    <div class="member">
+                        <div class="member-name">Reverse</div>
+                        <div class="member-desc">Обратная сторона медали. Где другие видят стены, она находит двери.</div>
+                    </div>
+                </div>
+                
+                <div class="level">
+                    <div class="level-title">Носители Фрактала</div>
+                    <p>Те, кто поддержали нас материально:</p>
+                    
+                    <div class="member">
+                        <div class="member-name">[скрыто]</div>
+                        <div class="member-desc">Имена защищены протоколами безопасности</div>
+                    </div>
+                </div>
+                
+                <div class="level">
+                    <div class="level-title">XIII</div>
+                    <p>Полноправные члены организации:</p>
+                    
+                    <div class="member">
+                        <div class="member-name">[скрыто]</div>
+                        <div class="member-desc">Имена защищены протоколами безопасности</div>
+                    </div>
+                </div>
+                
+                <div class="level">
+                    <div class="level-title">Адепты</div>
+                    <p>Слабо доверенные лица:</p>
+                    
+                    <div class="member">
+                        <div class="member-name">[скрыто]</div>
+                        <div class="member-desc">Имена защищены протоколами безопасности</div>
+                    </div>
+                </div>
+                
+                <div class="level">
+                    <div class="level-title">Неофиты</div>
+                    <p>Недоверенные лица на испытательном сроке:</p>
+                    
+                    <div class="member">
+                        <div class="member-name">[скрыто]</div>
+                        <div class="member-desc">Имена защищены протоколами безопасности</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <section>
+            <h2>Принципы</h2>
+            <p>1. Молчание - наше оружие.</p>
+            <p>2. Действие - наша молитва.</p>
+            <p>3. Справедливость - наша цель.</p>
+            <p>4. PinkCloud - наше поле битвы.</p>
+        </section>
+        
+        <div class="transition-block"></div>
+    </div>
+    
+    <div class="freedom-section">
+        <h2>СВОБОДА</h2>
+        <p>За туманом запретов и ограничений мы видим чистое небо. То, к чему стремимся, ради чего действуем. Не власть, не контроль - лишь возможность быть.</p>
+        <p>Свобода - не привилегия, а право каждого. И мы сделаем всё, чтобы это право стало реальностью.</p>
+        <a href="https://t.me/aikawa_kimura" class="contact-btn freedom-btn">УСТАНОВИТЬ КОНТАКТ</a>
+    </div>
+    
+    <div class="corner-decoration bottom-left"></div>
+    <div class="corner-decoration bottom-right"></div>
+    
+    <footer>
+        Внимание: все персонажи и события вымышлены. Любые совпадения случайны.<br>
+        XIII COLONNA © НИКАКИХ ПРАВ. НИКАКИХ ОГРАНИЧЕНИЙ.<br>
+        dev by nockiee
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Эффект мерцания для заголовка
+            const title = document.querySelector('h1');
+            setInterval(() => {
+                title.classList.toggle('glitch');
+            }, 3000);
+            
+            // Эффект появления элементов
+            const elements = document.querySelectorAll('section, .divider, .level, .contact-btn');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+            
+            // Анимация угловых декораций
+            const corners = document.querySelectorAll('.corner-decoration');
+            corners.forEach(corner => {
+                corner.addEventListener('mouseenter', () => {
+                    corner.style.transform = 'scale(1.2)';
+                    corner.style.transition = 'transform 0.3s ease';
+                });
+                
+                corner.addEventListener('mouseleave', () => {
+                    corner.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
