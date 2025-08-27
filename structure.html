@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Структура | XIII Колонна</title>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103798232', 'ym');
+
+        ym(103798232, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/103798232" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cardinals-section {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .cardinals-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cardinal-card {
+            background: var(--primary-color);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        .cardinal-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent-color);
+            overflow: hidden;
+        }
+        
+        .cardinal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cardinal-name {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .cardinal-role {
+            color: #a0a0a0;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .cardinal-desc {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .departments-section {
+            padding: 80px 0;
+        }
+        
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .department-card {
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            background: var(--primary-color);
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .department-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .department-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .department-name {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        .department-desc {
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        /* Цвета границ для отделов */
+        .department-verhovny {
+            background-color: #F9CA00;
+        }
+        
+        .department-inquisition {
+            background-color: #44997A;
+        }
+        
+        .department-internal {
+            background-color: #9A27C8;
+        }
+        
+        .department-filtration {
+            background-color: #209732;
+        }
+        
+        .department-card:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 900px) {
+            .cardinals-grid,
+            .departments-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            .cardinal-card,
+            .department-card {
+                padding: 25px 20px;
+                min-height: auto;
+            }
+            
+            .cardinal-avatar {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .department-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="official-header">
+        <div class="header-top">
+            <div class="header-container">
+                <div class="logo-container">
+                    <img src="logo.png" alt="XIII Колонна" class="official-logo">
+                    <h1 class="org-name">XIII КОЛОННА</h1>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="header-container">
+                <ul class="official-nav">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="chronology.html">История</a></li>
+                    <li><a href="structure.html" style="color: #fff; background-color: rgba(0,0,0,0.2);">Структура</a></li>
+                    <li><a href="documents.html">Документы</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <!-- Секция кардиналов -->
+        <section class="cardinals-section">
+            <div class="header-container">
+                <div class="page-header">
+                    <h2 class="page-title">Кардиналы</h2>
+                    <p class="page-subtitle">Высшее руководство XIII Колонны</p>
+                </div>
+                
+                <div class="cardinals-grid">
+                    <div class="cardinal-card">
+                        <div class="cardinal-avatar">
+                            <img src="/assets/egoropasn.webp" alt="Egoropasn">
+                        </div>
+                        <h3 class="cardinal-name">Egoropasn</h3>
+                        <p class="cardinal-role">Кардинал</p>
+                        <p class="cardinal-desc">Основатель организации XIII Колонна. Руководит важными процессами которые происходят внутри организации и за её пределами.</p>
+                    </div>
+                    
+                    <div class="cardinal-card">
+                        <div class="cardinal-avatar">
+                            <img src="/assets/nockiee.webp" alt="nockiee">
+                        </div>
+                        <h3 class="cardinal-name">nockiee</h3>
+                        <p class="cardinal-role">Кардинал</p>
+                        <p class="cardinal-desc">Со-Основатель. Отвечает за технологическое развитие и инфраструктуру XIII Колонны.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Секция отделов -->
+        <section class="departments-section">
+            <div class="header-container">
+                <div class="page-header">
+                    <h2 class="page-title">Отделы организации</h2>
+                    <p class="page-subtitle">Специализированные подразделения XIII Колонны</p>
+                </div>
+                
+                <div class="departments-grid">
+                    <div class="department-card department-verhovny">
+                        <div class="department-logo">
+                            <img src="/assets/supreme.png" alt="Верховный отдел">
+                        </div>
+                        <h3 class="department-name">Верховный отдел</h3>
+                        <p class="department-desc">Высший орган управления. Разрабатывает стратегию и принимает ключевые решения для всей организации.</p>
+                    </div>
+                    
+                    <div class="department-card department-inquisition">
+                        <div class="department-logo">
+                            <img src="/assets/inquisition.png" alt="Инквизиционный отдел">
+                        </div>
+                        <h3 class="department-name">Инквизиционный отдел</h3>
+                        <p class="department-desc">Проводит внешние операции и вылазки на другие сервера. Отвечает за безопасность и расширение влияния.</p>
+                    </div>
+                    
+                    <div class="department-card department-internal">
+                        <div class="department-logo">
+                            <img src="/assets/internal.png" alt="Внутренний отдел">
+                        </div>
+                        <h3 class="department-name">Внутренний отдел</h3>
+                        <p class="department-desc">Основные участники организации. Обеспечивают функционирование и выполнение повседневных задач.</p>
+                    </div>
+                    
+                    <div class="department-card department-filtration">
+                        <div class="department-logo">
+                            <img src="/assets/filtration.png" alt="Фильтрационный отдел">
+                        </div>
+                        <h3 class="department-name">Фильтрационный отдел</h3>
+                        <p class="department-desc">Проводит проверку и отбор новых членов. Обеспечивает безопасность и чистоту рядов организации.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <!-- Верхний уровень футера -->
+        <div class="footer-top">
+            <div class="footer-container">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="XIII Колонна" class="footer-logo-img">
+                        <span class="footer-title">XIII КОЛОННА</span>
+                    </div>
+                    
+                    <div class="footer-nav">
+                        <div class="footer-nav-column">
+                            <h4>Навигация</h4>
+                            <ul>
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="chronology.html">История</a></li>
+                                <li><a href="structure.html">Структура</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-nav-column">
+                            <h4>Документы</h4>
+                            <ul>
+                                <li><a href="documents.html">Уставные документы</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-nav-column">
+                            <h4>Контакты</h4>
+                            <ul>
+                                <li><a href="contact.html">Связаться с нами</a></li>
+                                <li><a href="contact.html">Телеграм</a></li>
+                                <li><a href="contact.html">Discord</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Нижний уровень футера -->
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="dev-info">
+                    <img src="assets/nlogo.png" alt="nockiee" class="dev-logo">
+                    <span>dev by nockiee</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
